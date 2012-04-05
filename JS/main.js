@@ -32,7 +32,26 @@ window.addEventListener("DOM ContentLoaded", function(){
 		}; 
 	 };
 	 
-	 
+	function toggleControls(n){
+		switch(n){
+			case "on":
+				$('contactForm').style.display = "none";
+				$('clear').style.display = "inline";
+				$('displayData').style.display = 'none';
+				$('addNew').style.display = 'inline';
+				break;
+			case "off":
+				$('contactForm').style.display = "block";
+				$('clear').style.display = "inline";
+				$('displayData').style.display = 'inline';
+				$('addNew').style.display = 'none';
+				$('items').style.display = 'none';
+				
+				break;
+			default:
+				return false;
+		};
+	};
 	function saveData () {
 		var id = Math.floor(Math.random()*10000001);
 		getSelectedRadio();
@@ -51,16 +70,38 @@ window.addEventListener("DOM ContentLoaded", function(){
 	}
 	
 	function getData(){
+		toggleControls("on");
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id","items");
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
+		$('items').style.display = 'block';
 		for(var i=0, len = localStorage.length; i<len; i++){
 			var makeli = document.createElement('li');
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var object = JSON.parse(value);
+			var makeSublist = document.createElement('li');
+			makeli.appendChild(makeSubList);
+			for (var n in obj){
+				var makeSubli = document.createElement('li');
+				makeSubList.appendChild(makeSubli);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubli.innerHTML = optSubText;
+			};
+		};
+	};
+	
+	function clearLocal(){
+		if(localStorage.length====0){
+			alert("There is no Data to clear!")
+		}else{
+			localStorage.clear();
+			alert("All contacts are deleted");
+			window.location.reload();
+			return false;
 		};
 	};
 	var titleGroup = ["--Choose a Title--", "Ms.", "Mrs.", "Mr."],
