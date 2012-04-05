@@ -11,7 +11,7 @@ window.addEventListener("DOM ContentLoaded", function(){
 	
 	function makeTitle(){
 		var formTag = document.getElementsByTagNames("form"),
-		selectLi = $('select'),
+		titleGroup = $('select'),
 		makeSelect = document.createElement('select');
 		makeSelect.setAttribute("id", "titles");
 		for(var i=0, j=titleGroup.length; i<j; i++){
@@ -19,16 +19,16 @@ window.addEventListener("DOM ContentLoaded", function(){
 			var optText = titleGroup[i];
 			makeOption.setAttribute("value", optText);
 			makeOption.innerHTML = optText; 
-			makeTitle.appendChild(makeOption)
+			makeTitle.appendChild(makeOption);
 		}
-		 selectLi.appendChild();
+		 titleGroup.appendChild();
 	}
 	function getSelectedRadio(){
-		var radios  = document.form[0].group
+		var radios  = document.form[0].group;
 		for (var i=0; i< radios.length; i++){
-			if radios[i].checked{
-				groupValue = radios[i].value;
-			}
+			if (radios[i].checked){
+				var groupValue = radios[i].value;
+			};
 		}; 
 	 };
 	 
@@ -55,19 +55,19 @@ window.addEventListener("DOM ContentLoaded", function(){
 	function saveData () {
 		var id = Math.floor(Math.random()*10000001);
 		getSelectedRadio();
-		var item {}
-		item.title  = ["Title", $('titles'). value];
-		item.fname = ["First Name", $('fname').value];
-		item.lname = ["Last Name", $('lname').value];
-		item.email = ["Email", $('email').value];
-		item.birthday = ["Birthday", $('date').value];
- 		item.out = ["In a month, how often do you go see live music?", $('out')value];
-		item.hear= ["How did you hear about Myron Bennell Carroll?", $('hear').Value];
+		var item {};
+		item.title  = ["Title", $('titles').value],
+		item.fname = ["First Name", $('fname').value],
+		item.lname = ["Last Name", $('lname').value],
+		item.email = ["Email", $('email').value],
+		item.birthday = ["Birthday", $('date').value],
+ 		item.out = ["In a month, how often do you go see live music?", $('out').value],
+		item.hear= ["How did you hear about Myron Bennell Carroll?", $('hear').value],
 		item.group= ["", groupValue];
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Contact Saved");
 		
-	}
+	};
 	
 	function getData(){
 		toggleControls("on");
@@ -95,7 +95,7 @@ window.addEventListener("DOM ContentLoaded", function(){
 	};
 	
 	function clearLocal(){
-		if(localStorage.length====0){
+		if(localStorage.length===0){
 			alert("There is no Data to clear!")
 		}else{
 			localStorage.clear();

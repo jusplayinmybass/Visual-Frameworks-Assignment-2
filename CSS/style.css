@@ -1,10 +1,44 @@
+html {	
+	 	font-family: "Apple Chancery", Arial, "Times New Roman", serif;
+		color: #993399;
+}
 h1{
 	font: 30px Arial;
 	font-weight: bold;
-	border: 1px solid #bbb;
-	color: #555;
-	background-color: #eee;
+	border: 1px solid #aaa;
+	color: #0099FF;
+	background-color: #3333FF;
 	padding: 10px;
 	text-transform: capitalize;
 	text-align: left;
+}
+
+fieldset {
+	margin: 0px;
+}
+
+label {
+	display: block;
+	text-decoration: none;
+	text-align: left;
+}
+
+a {
+	margin: 5px;
+	padding: 5px;
+	font-size: x-small;
+}
+
+li {
+	color: #3333FF;
+	text-align: left;
+}
+
+legend {
+	font-weight: bold;
+
+}
+
+option {
+	font-style: italic;	
 }
