@@ -1,0 +1,10 @@
+h1{
+	font: 30px Arial;
+	font-weight: bold;
+	border: 1px solid #bbb;
+	color: #555;
+	background-color: #eee;
+	padding: 10px;
+	text-transform: capitalize;
+	text-align: left;
+}
