@@ -63,7 +63,7 @@ window.addEventListener("DOM ContentLoaded", function(){
 		item.birthday = ["Birthday", $('date').value],
  		item.out = ["In a month, how often do you go see live music?", $('out').value],
 		item.hear= ["How did you hear about Myron Bennell Carroll?", $('hear').value],
-		item.group= ["", groupValue];
+		item.group= ["", groupValue];     
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Contact Saved");
 		
@@ -82,13 +82,13 @@ window.addEventListener("DOM ContentLoaded", function(){
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
-			var object = JSON.parse(value);
+			var objectect = JSON.parse(value);
 			var makeSublist = document.createElement('li');
 			makeli.appendChild(makeSubList);
-			for (var n in obj){
+			for (var n in object){
 				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
-				var optSubText = obj[n][0]+" "+obj[n][1];
+				var optSubText = object[n][0]+" "+object[n][1];
 				makeSubli.innerHTML = optSubText;
 			};
 		};
@@ -96,7 +96,7 @@ window.addEventListener("DOM ContentLoaded", function(){
 	
 	function clearLocal(){
 		if(localStorage.length===0){
-			alert("There is no Data to clear!")
+			alert("There is no Data to clear!");
 		}else{
 			localStorage.clear();
 			alert("All contacts are deleted");
