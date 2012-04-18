@@ -3,15 +3,15 @@
 // Visual Frameworks
 // Section 1204
 
-window.addEventListener("DOM ContentLoaded", function(){
-	function $ (x){
+window.addEventListener("DOMContentLoaded", function(){
+	function $(x){
 		var theElement = document.getElementByID(x);
 		return theElement;
 	}
 	
 	function makeTitle(){
 		var formTag = document.getElementsByTagNames("form"),
-		titleGroup = $('select'),
+		titleGroup = $('Title'),
 		makeSelect = document.createElement('select');
 		makeSelect.setAttribute("id", "titles");
 		for(var i=0, j=titleGroup.length; i<j; i++){
@@ -21,7 +21,7 @@ window.addEventListener("DOM ContentLoaded", function(){
 			makeOption.innerHTML = optText; 
 			makeTitle.appendChild(makeOption);
 		}
-		 titleGroup.appendChild();
+		 Title.appendChild();
 	}
 	function getSelectedRadio(){
 		var radios  = document.form[0].group;
@@ -55,8 +55,8 @@ window.addEventListener("DOM ContentLoaded", function(){
 	function saveData () {
 		var id = Math.floor(Math.random()*10000001);
 		getSelectedRadio();
-		var item {};
-		item.title  = ["Title", $('titles').value],
+		var item = {};
+		item.title  = ["title", $('title').value],
 		item.fname = ["First Name", $('fname').value],
 		item.lname = ["Last Name", $('lname').value],
 		item.email = ["Email", $('email').value],
@@ -104,7 +104,7 @@ window.addEventListener("DOM ContentLoaded", function(){
 			return false;
 		};
 	};
-	var titleGroup = ["--Choose a Title--", "Ms.", "Mrs.", "Mr."],
+	var titleGroup = ["--Choose--", "Ms.", "Mrs.", "Mr."],
 		groupValue;
 	makeTitle();
 	
@@ -112,7 +112,7 @@ window.addEventListener("DOM ContentLoaded", function(){
 	displayLink.addEventListener("click", getData);
 	var clearLink = $('clear form');
 	clearLink.addEventListener("click", clearLocal);
-	var save = $ ('submit');
+	var save = $('submit');
 	save.addEventListener = $("click", saveData);
 
 
